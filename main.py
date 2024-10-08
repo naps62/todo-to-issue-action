@@ -543,6 +543,8 @@ class TodoParser(object):
                 continue
             curr_markers, curr_markdown_language = self._get_file_details(curr_file)
             if not curr_markers or not curr_markdown_language:
+                print(curr_markers)
+                print(curr_markdown_language)
                 print(f'Could not check "{curr_file}" for TODOs as this language is not yet supported by default.')
                 continue
 
