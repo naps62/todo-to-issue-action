@@ -663,10 +663,11 @@ class TodoParser(object):
         attributes = [at.lower() for at in self.languages_dict[language_name][attribute]]
         if (language_name=="Solidity"):
             print(language_name, attribute, value)
-            print(self.syntax_dict)
         if value.lower() in attributes:
             for syntax_details in self.syntax_dict:
+                print(syntax_details)
                 if syntax_details['language'] == language_name:
+                    print(syntax_details)
                     # TODO: this is a hotfix to make it temporarily work for solidity. Currently using it in my own project. happy to implement a proper solution if possible
                     if language_name == "Solidity":
                         return syntax_details['markers'], "solidity"
@@ -676,8 +677,6 @@ class TodoParser(object):
     def _get_file_details(self, file):
         """Try and get the Markdown language and comment syntax data for the given file."""
         file_name, extension = os.path.splitext(os.path.basename(file))
-        print(file_name)
-        print(extension)
         print(self.languages_dict["Solidity"])
         for language_name in self.languages_dict:
             # Check if the file extension matches the language's extensions.
