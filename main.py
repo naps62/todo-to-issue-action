@@ -661,6 +661,9 @@ class TodoParser(object):
     def _get_language_details(self, language_name, attribute, value):
         """Try and get the Markdown language and comment syntax data based on a specified attribute of the language."""
         attributes = [at.lower() for at in self.languages_dict[language_name][attribute]]
+        if (languages_name=="Solidity"):
+            print(language_name, attribute, value)
+            print(self.syntax_dict)
         if value.lower() in attributes:
             for syntax_details in self.syntax_dict:
                 if syntax_details['language'] == language_name:
@@ -675,6 +678,7 @@ class TodoParser(object):
         file_name, extension = os.path.splitext(os.path.basename(file))
         print(file_name)
         print(extension)
+        print(languages_dict["Solidity"])
         for language_name in self.languages_dict:
             # Check if the file extension matches the language's extensions.
             if extension != '' and 'extensions' in self.languages_dict[language_name]:
