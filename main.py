@@ -661,8 +661,6 @@ class TodoParser(object):
     def _get_language_details(self, language_name, attribute, value):
         """Try and get the Markdown language and comment syntax data based on a specified attribute of the language."""
         attributes = [at.lower() for at in self.languages_dict[language_name][attribute]]
-        print(attributes)
-        print(value)
         if value.lower() in attributes:
             for syntax_details in self.syntax_dict:
                 if syntax_details['language'] == language_name:
